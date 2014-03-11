@@ -10,7 +10,7 @@ class MainController < ApplicationController
   end
 
   def github_callback
-    @omni = env['omniauth.auth'].to_yaml
+    @omni = env['omniauth.auth'].to_s
   end
 
 end
