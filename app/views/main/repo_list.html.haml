@@ -1,3 +1,6 @@
+-# this is an insecure hack, just so I can grab an OAuth token for testing
+= hidden_field_tag 'never_you_mind', session[:oauth_token]
+
 .container
 
   %h1{style: 'color: #87F834'} RepoFinder
@@ -46,7 +49,7 @@
         %th Stars
       - for item in @items
         %tr{class: item.language}
-          %td= item.name
+          %td= item.full_name
           %td= item.language
           %td= item.stargazers_count
     %ul.pager
