@@ -5,7 +5,7 @@ Repofinder::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#welcome'
   post '/auth/developer/callback' => 'main#developer_callback'
-  post '/auth/github/callback' => 'main#github_callback'
+  get '/auth/github/callback' => 'main#github_callback'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
