@@ -10,7 +10,8 @@ class MainController < ApplicationController
   end
 
   def github_callback
-    @omni = env['omniauth.auth']
+    omni = env['omniauth.auth']
+    @oauth_token = omni['credentials']['token']
   end
 
 end
