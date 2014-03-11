@@ -1,7 +1,9 @@
 %h1 repo_list
-%h2 headers.ratelimit_limit
-%p= @result.headers.ratelimit_limit
-%h2 headers.ratelimit_remaining
-%p= @result.headers.ratelimit_remaining
-%h2 result
-%p= @result
+%h2 Number of repos listed
+%p= @total_count
+%h2 Items
+%table{:style => 'width: 50%'}
+- for item in @items
+  %tr
+    %td= item.name
+    %td= item.language

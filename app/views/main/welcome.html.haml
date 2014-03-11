@@ -1,4 +1,4 @@
 %h1 Welcome to RepoFinder
-= link_to 'Sign in as developer', '/auth/developer'
-%br
-= link_to 'Sign in with github', '/auth/github'
+- unless Rails.env.production?
+  %p= link_to 'Sign in as developer', '/auth/developer'
+%p= link_to 'Sign in with github', '/auth/github'

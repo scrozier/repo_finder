@@ -6,7 +6,7 @@ class MainController < ApplicationController
   end
 
   def developer_callback
-    session[:oauth_token] = 'be547aee16949447aae86c3bea4e6a4fae8ac2d4'
+    session[:oauth_token] = 'a14ce94def68a901630f77dbd5468f7fe7efb9de'
     render 'search'
   end
 
@@ -17,7 +17,9 @@ class MainController < ApplicationController
 
   def repo_list
     github = Github.new oauth_token: session[:oauth_token]
-    @result = github.search.repos('books')
+    result = github.search.repos('books')
+    @total_count = result['total_count']
+    @items = result['items']
   end
 
 end
