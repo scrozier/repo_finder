@@ -11,7 +11,7 @@ class MainController < ApplicationController
   end
 
   def developer_callback
-    session[:oauth_token] = 'a14ce94def68a901630f77dbd5468f7fe7efb9de'
+    session[:oauth_token] = '9b8daac2b33d20d6159a4155708c9ef37850258f'
     set_up_no_query
     render :repo_list
   end
