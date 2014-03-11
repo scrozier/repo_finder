@@ -28,7 +28,13 @@ class MainController < ApplicationController
     unless @current_query.blank?
       @page = params[:page].to_i || 1
       @sort = params[:sort] || 'asc'
-      result = github.search.repos(@current_query, page: @page, sort: 'stars', order: @sort)
+      begin
+        result = github.search.repos(@current_query, page: @page, sort: 'stars', order: @sort)
+      rescue Github::Error::Unauthorized
+        session.delete :oauth_token
+        redirect_to :root
+        return
+      end
       @total_count = result['total_count']
       @items = result['items']
       @languages = @items.collect{|r| r.language}.uniq
